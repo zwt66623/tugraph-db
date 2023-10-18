@@ -114,7 +114,7 @@ int main(int argc, char ** argv) {
 
     // output for unittest
     for (int i = 0; i < 5 && i < (int)result_list.size(); i++) {
-        printf("psp(%lu,%lu) = %lu\n", std::get<0>(result_list[i]),
+        printf("spsp(%lu,%lu) = %lu\n", std::get<0>(result_list[i]),
             std::get<1>(result_list[i]), std::get<2>(result_list[i]));
     }
 

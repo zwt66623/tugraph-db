@@ -51,8 +51,17 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                         if(length[src]+edge.edge_data>result_length){
                             continue;
                         }
-                        if (length[dst] == (size_t)-1||length[dst]>length[src]+edge.edge_data) {                            
+                        if (length[dst] == (size_t)-1) {                            
                             if (cas(&length[dst], (double)-1, length[src]+edge.edge_data)) {
+                                active_out.Add(dst);
+                                activated += 1;
+                            }
+                            if(length_src[dst]+length_dst[dst]<result_length){
+                                result_length=std::min(result_length,length_src[dst]+length_dst[dst]);
+                            }
+                        }
+                        else if(length[dst]>length[src]+edge.edge_data){
+                            if (cas(&length[dst], length[dst], length[src]+edge.edge_data)) {
                                 active_out.Add(dst);
                                 activated += 1;
                             }
