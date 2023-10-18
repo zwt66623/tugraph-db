@@ -56,7 +56,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                                 active_out.Add(dst);
                                 activated += 1;
                             }
-                            if(length_src[dst]+length_dst[dst]<result_length){
+                            if((length_dst[dst]!=-1&&length_src[dst]!=-1)&&(length_src[dst]+length_dst[dst]<result_length)){
                                 result_length=std::min(result_length,length_src[dst]+length_dst[dst]);
                             }
                         }
@@ -65,7 +65,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                                 active_out.Add(dst);
                                 activated += 1;
                             }
-                            if(length_src[dst]+length_dst[dst]<result_length){
+                            if((length_dst[dst]!=-1&&length_src[dst]!=-1)&&(length_src[dst]+length_dst[dst]<result_length)){
                                 result_length=std::min(result_length,length_src[dst]+length_dst[dst]);
                             }
                         }
