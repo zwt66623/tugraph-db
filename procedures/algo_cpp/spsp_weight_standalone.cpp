@@ -34,14 +34,14 @@ std::tuple<size_t, bool> parse_line_search_file(const char * p,
     return std::tuple<size_t, bool>(p - orig, p != orig);
 }
 
-class MyConfig : public ConfigBase<Empty> {
+class MyConfig : public ConfigBase<double> {
  public:
     std::string name = "spsp";
     int make_symmetric = 0;
     std::string search_dir = "";
 
     void AddParameter(fma_common::Configuration & config) {
-        ConfigBase<Empty>::AddParameter(config);
+        ConfigBase<double>::AddParameter(config);
         config.Add(make_symmetric, "make_symmetric", true)
                 .Comment("To make input graph undirected or not");
         config.Add(search_dir, "search_dir", false)
@@ -49,13 +49,13 @@ class MyConfig : public ConfigBase<Empty> {
     }
 
     void Print() {
-        ConfigBase<Empty>::Print();
+        ConfigBase<double>::Print();
         std::cout << "  name:           " << name << std::endl;
         std::cout << "  make_symmetric: " << make_symmetric << std::endl;
         std::cout << "  search_dir:    " << search_dir << std::endl;
     }
 
-    MyConfig(int & argc, char** &argv) : ConfigBase<Empty>(argc, argv) {
+    MyConfig(int & argc, char** &argv) : ConfigBase<double>(argc, argv) {
         fma_common::Configuration config;
         AddParameter(config);
         config.ExitAfterHelp(true);
