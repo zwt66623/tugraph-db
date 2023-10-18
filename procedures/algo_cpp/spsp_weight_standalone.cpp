@@ -74,11 +74,12 @@ int main(int argc, char ** argv) {
     MyConfig config(argc, argv);
 
     OlapOnDisk<double> graph;
-    if (config.make_symmetric == 0) {
-        graph.Load(config, DUAL_DIRECTION);
-    } else {
-        graph.Load(config, MAKE_SYMMETRIC);
-    }
+    graph.Load(config, DUAL_DIRECTION);
+    // if (config.make_symmetric == 0) {
+    //     graph.Load(config, DUAL_DIRECTION);
+    // } else {
+    //     graph.Load(config, MAKE_SYMMETRIC);
+    // }
     memUsage.print();
     memUsage.reset();
     std::cout << "  num_vertices = " << graph.NumVertices() << std::endl;
