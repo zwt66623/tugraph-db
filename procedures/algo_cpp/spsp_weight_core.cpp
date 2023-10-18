@@ -27,11 +27,11 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
     ParallelBitset active_in_dst = graph.AllocVertexSubset();
     ParallelBitset active_out_dst = graph.AllocVertexSubset();
 
-    auto length_src = graph.AllocVertexArray<size_t>();
-    auto length_dst = graph.AllocVertexArray<size_t>();
-    length_src.Fill((size_t)-1);
+    auto length_src = graph.AllocVertexArray<double>();
+    auto length_dst = graph.AllocVertexArray<double>();
+    length_src.Fill((double)-1);
     length_src[root_src] = 0;
-    length_dst.Fill((size_t)-1);
+    length_dst.Fill((double)-1);
     length_dst[root_dst] = 0;
 
     size_t active_vertices = 2;
@@ -52,7 +52,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                             continue;
                         }
                         if (length[dst] == (size_t)-1||length[dst]>length[src]+edge.edge_data) {                            
-                            if (cas(&length[dst], (size_t)-1, length[src]+edge.edge_data)) {
+                            if (cas((double)&length[dst], (double)-1, length[src]+edge.edge_data)) {
                                 active_out.Add(dst);
                                 activated += 1;
                             }
