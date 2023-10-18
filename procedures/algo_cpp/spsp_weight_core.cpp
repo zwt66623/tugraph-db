@@ -52,7 +52,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                             continue;
                         }
                         if (length[dst] == (size_t)-1||length[dst]>length[src]+edge.edge_data) {                            
-                            if (cas((double)&length[dst], (double)-1, length[src]+edge.edge_data)) {
+                            if (cas(&length[dst], (double)-1, length[src]+edge.edge_data)) {
                                 active_out.Add(dst);
                                 activated += 1;
                             }
