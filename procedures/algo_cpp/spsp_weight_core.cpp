@@ -42,7 +42,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
     double result_length = 2e10;
 
     auto one_hop_bfs = [&] (size_t root, ParallelBitset& active_in,
-        ParallelBitset& active_out, ParallelVector<size_t>& length) -> size_t {//这里的->size_t是返回值类型
+        ParallelBitset& active_out, ParallelVector<double>& length) -> size_t {//这里的->size_t是返回值类型
         size_t s =  graph.ProcessVertexActive<size_t>(
                 [&] (size_t src) {
                     size_t activated = 0;
