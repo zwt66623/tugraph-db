@@ -73,7 +73,7 @@ int main(int argc, char ** argv) {
     start_time = get_time();
     MyConfig config(argc, argv);
 
-    OlapOnDisk<Empty> graph;
+    OlapOnDisk<double> graph;
     if (config.make_symmetric == 0) {
         graph.Load(config, DUAL_DIRECTION);
     } else {
