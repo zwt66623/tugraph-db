@@ -39,7 +39,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
     active_in_dst.Clear();
     active_in_src.Add(root_src);
     active_in_dst.Add(root_dst);
-    double result_length = 2e10;
+    double result_length = 8e10;
 
     auto one_hop_bfs = [&] (size_t root, ParallelBitset& active_in,
         ParallelBitset& active_out, ParallelVector<double>& length) -> size_t {//这里的->size_t是返回值类型
@@ -57,7 +57,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                                 activated += 1;
                             }
                             if((length_dst[dst]!=-1&&length_src[dst]!=-1)&&(length_src[dst]+length_dst[dst]<result_length)){
-                                result_length=std::min(result_length,length_src[dst]+length_dst[dst]);
+                                cas(&result_length, result_length, length_src[dst]+length_dst[dst]);
                             }
                         }
                         else if(length[dst]>length[src]+edge.edge_data){
@@ -66,7 +66,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                                 activated += 1;
                             }
                             if((length_dst[dst]!=-1&&length_src[dst]!=-1)&&(length_src[dst]+length_dst[dst]<result_length)){
-                                result_length=std::min(result_length,length_src[dst]+length_dst[dst]);
+                                cas(&result_length, result_length, length_src[dst]+length_dst[dst]);
                             }
                         }
                     }
