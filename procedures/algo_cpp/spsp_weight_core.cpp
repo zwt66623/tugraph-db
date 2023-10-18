@@ -18,7 +18,7 @@
 using namespace lgraph_api;
 using namespace lgraph_api::olap;
 
-size_t SPSPCore(OlapBase<Empty> & graph, std::pair<size_t, size_t> search_pair) {
+double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair) {
     size_t root_src = search_pair.first;
     size_t root_dst = search_pair.second;
 

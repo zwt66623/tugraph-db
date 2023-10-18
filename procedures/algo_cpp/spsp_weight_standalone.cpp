@@ -104,7 +104,7 @@ int main(int argc, char ** argv) {
     start_time = get_time();
     std::vector< std::tuple<size_t, size_t, size_t> > result_list;
     for (auto search_pair : search_list) {
-        size_t length = SPSPCore(graph, search_pair);
+        double length = SPSPCore(graph, search_pair);
         result_list.push_back(std::make_tuple(search_pair.first, search_pair.second, length));
     }
     memUsage.print();

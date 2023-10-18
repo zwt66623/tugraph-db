@@ -354,6 +354,7 @@ double SLPACore(OlapBase<Empty>& graph,
  * @return    return the shortest path distance of search pair.
  */
 size_t SPSPCore(OlapBase<Empty>& graph, std::pair<size_t, size_t> search_pair);
+double SPSPCore(OlapBase<double>& graph, std::pair<size_t, size_t> search_pair);
 
 /**
  * @brief    Compute the Trustrank algorithm.
