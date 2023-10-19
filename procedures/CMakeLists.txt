@@ -39,6 +39,7 @@ function(add_extension APP)
             LIBRARY_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/algo")
 endfunction()
 
+add_standalone(spsp_weight)
 add_standalone(bfs)
 add_standalone(pagerank)
 add_standalone(sssp)
