@@ -48,6 +48,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
                     size_t activated = 0;
                     for (auto edge : graph.OutEdges(src)) {
                         size_t dst = edge.neighbour;
+                        printf("src=%lu,dst=%lu\n,length[src]=%lf,length[dst]=%lf,edge.edge_data=%lf\n",src,dst,length[src],length[dst],edge.edge_data);
                         if(length[src]+edge.edge_data>result_length){
                             continue;
                         }
@@ -94,6 +95,7 @@ double SPSPCore(OlapBase<double> & graph, std::pair<size_t, size_t> search_pair)
 
         active_in_src.Swap(active_out_src);
         active_in_dst.Swap(active_out_dst);
+        printf("iter_i=%d,active_vertices=%lu\n",iter_i,active_vertices);
     }
     return result_length;
 }
