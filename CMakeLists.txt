@@ -47,7 +47,7 @@ find_package(Boost 1.68 REQUIRED COMPONENTS log system filesystem)
 # target
 # add_subdirectory(deps/geax-front-end)
 # add_subdirectory(src)
-# add_subdirectory(test)
+add_subdirectory(test)
 # add_subdirectory(toolkits)
 add_subdirectory(procedures)
 # add_subdirectory(release)
