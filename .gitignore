@@ -63,7 +63,6 @@ test/*.o
 restful/server/build/
 server/united_server
 *.pem
-build
 *.ttl
 release/doc/*.html
 src/restful/server/resource/
