@@ -56,6 +56,8 @@ class MyConfig : public ConfigBase<double> {
     }
 
     MyConfig(int & argc, char** &argv) : ConfigBase<double>(argc, argv) {
+        parse_line = parse_line_weighted<double>;
+        parse_string_line = parse_string_line_weighted<double>;
         fma_common::Configuration config;
         AddParameter(config);
         config.ExitAfterHelp(true);
@@ -74,12 +76,11 @@ int main(int argc, char ** argv) {
     MyConfig config(argc, argv);
 
     OlapOnDisk<double> graph;
-    graph.Load(config, DUAL_DIRECTION);
-    // if (config.make_symmetric == 0) {
-    //     graph.Load(config, DUAL_DIRECTION);
-    // } else {
-    //     graph.Load(config, MAKE_SYMMETRIC);
-    // }
+    if (config.make_symmetric == 0) {
+        graph.Load(config, DUAL_DIRECTION);
+    } else {
+        graph.Load(config, MAKE_SYMMETRIC);
+    }
     memUsage.print();
     memUsage.reset();
     std::cout << "  num_vertices = " << graph.NumVertices() << std::endl;
