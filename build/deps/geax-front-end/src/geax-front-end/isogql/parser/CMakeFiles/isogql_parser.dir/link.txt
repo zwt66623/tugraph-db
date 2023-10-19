@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../../../output/libisogql_parser.a "CMakeFiles/isogql_parser.dir/__/__/__/__/include/geax-front-end/isogql/parser/GqlLexer.cpp.o" "CMakeFiles/isogql_parser.dir/__/__/__/__/include/geax-front-end/isogql/parser/GqlParser.cpp.o" "CMakeFiles/isogql_parser.dir/__/__/__/__/include/geax-front-end/isogql/parser/GqlParserBaseVisitor.cpp.o" "CMakeFiles/isogql_parser.dir/__/__/__/__/include/geax-front-end/isogql/parser/GqlParserVisitor.cpp.o" CMakeFiles/isogql_parser.dir/AntlrGqlParser.cpp.o
+/usr/bin/ranlib ../../../../../../output/libisogql_parser.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../../output/libgeax_isogql.a CMakeFiles/geax_isogql.dir/GQLAstVisitor.cpp.o CMakeFiles/geax_isogql.dir/GEAXErrorCode.cpp.o CMakeFiles/geax_isogql.dir/__/common/FollyMallocImpl.cpp.o
+/usr/bin/ranlib ../../../../../output/libgeax_isogql.a

@@ -1,0 +1,1 @@
+/usr/local/bin/cc -O2 -g -DNDEBUG CMakeFiles/mdb_stat.dir/__/src/core/lmdb/mdb_stat.c.o CMakeFiles/mdb_stat.dir/__/src/core/lmdb/mdb.c.o CMakeFiles/mdb_stat.dir/__/src/core/lmdb/midl.c.o -o ../output/mdb_stat   -L/tugraph-db/deps/install/lib  -L/tugraph-db/deps/install/lib64  -Wl,-rpath,/tugraph-db/deps/install/lib:/tugraph-db/deps/install/lib64: -lpthread 
